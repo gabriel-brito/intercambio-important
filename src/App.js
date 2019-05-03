@@ -1,8 +1,11 @@
 import React from 'react';
+import Home from './modules/home';
 import './App.css';
 
-function App() {
-  return <h1>Hello World!</h1>
-}
+const App = () => (
+  <section className='App'>
+    <Home />  
+  </section>
+);
 
 export default App;

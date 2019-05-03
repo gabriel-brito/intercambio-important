@@ -1,0 +1,24 @@
+.homepage {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.homepage__card {
+  border-radius: 8px;
+  border: 1px solid;
+  height: 250px;
+  line-height: 250px;
+  padding: 20px;
+  text-align: center;
+  width: 50%;
+}
+
+.homepage__card--estudar {
+
+}
+
+.homepage__card--trabalhar {
+  
+}
