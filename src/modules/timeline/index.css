@@ -1,0 +1,64 @@
+.timeline {
+	padding: 0;
+}
+
+.timeline-price {
+	border-bottom: solid 1px #ddd;
+	margin-top: 10px;
+	padding-bottom: 10px;
+	text-align: right;
+}
+
+.timeline .timeline-item {
+	display: flex;
+	list-style: none;
+	padding: 0;
+}
+
+.timeline .timeline-date {
+	align-items: center;
+	border-right: solid 1px #555;
+	display: flex;
+	font-size: 12px;
+	font-family: "Roboto", "Helvetica";
+	justify-content: flex-end;
+	margin-right: 20px;
+	text-align: right;
+	width: 75px;
+}
+
+.timeline .timeline-date .timeline-date-bullet {
+	background-color: #555;
+	border-radius: 5px;
+	content: '';
+	display: inline-block;
+	position: relative;
+	height: 10px;
+	right: -5px;
+	width: 10px;
+}
+
+.timeline .timeline-card {
+	flex: 11;
+	margin-top: 10px;
+}
+
+.timeline .timeline-card .timeline-body {
+	display: flex;
+}
+
+.timeline .timeline-card .timeline-body .timeline-image {
+	height: 150px;
+	width: 150px;
+}
+
+.timeline .timeline-card .timeline-body .timeline-content {
+	flex: 1;
+}
+
+.timeline-buttons {
+	border-top: solid 1px #ddd;
+	margin-top: 40px;
+	padding-top: 20px;
+	text-align: right;
+}
