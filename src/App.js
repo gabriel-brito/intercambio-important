@@ -1,10 +1,10 @@
 import React from 'react';
-import Home from './modules/home';
+import Routes from './components/routes';
 import './App.css';
 
 const App = () => (
   <section className='App'>
-    <Home />  
+    <Routes />  
   </section>
 );
 
