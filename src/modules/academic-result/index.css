@@ -1,0 +1,70 @@
+.resultList {
+  border-radius: 8px;
+  border: 1px solid;
+  display: flex;
+  margin: 15px auto;
+  padding: 15px 10px;
+  position: relative;
+  width: 900px;
+}
+
+.resultList__informations {
+  max-width: 95%;
+}
+
+.resultList__informations h2 {
+  margin: 0 auto;
+}
+
+.resultList__informations.details {
+  width: 70%;
+}
+
+.resultList__informations.financial {
+  border-left: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+  width: 30%;
+}
+
+.resultList__informations.financial button {
+  background-color: #2196f3;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.financial button:hover {
+  background-color: #1884db;
+}
+
+.resultList__informations.financial h2 {
+  margin: 0;
+}
+
+.resultList__informations.info {
+  max-width: 95%;
+}
+
+.resultList__informations.info p {
+  margin: 10px auto;
+}
+
+.info p.school {
+  padding-bottom: 13px;
+  border-bottom: 1px solid lightgray;
+}
+
+.info p.accomodation span {
+  display: block;
+}
+
+span.amount {
+  color: #85bb65;
+  font-size: 22px;
+  font-weight: 700;
+}
