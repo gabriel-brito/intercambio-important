@@ -27,7 +27,7 @@ class Timeline {
 					imageUrl: parque
 				}
 			].map(item => new TimelineItem(item));
-		}, 0);
+		}, 2000);
 	}
 }
 
