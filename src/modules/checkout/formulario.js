@@ -173,7 +173,7 @@ const Formulario = () => (
 			</Grid>
 
 			<Grid item xs={12}>
-				<Button
+				<Button onClick={() => window.location.href = '/#/checkout'}
 					variant="contained"
 					color="primary"
 				>

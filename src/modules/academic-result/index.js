@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import  { Redirect } from 'react-router'
 
 import './index.css'
 
@@ -28,12 +29,12 @@ const AcademicResult = ({
 
     </div>
     <div className='resultList__informations financial'>
-      <h2>Preço da instituição:</h2>
+      
       <span className='amount'>
-        {`R$ ${price}`}
+        <h2>Preço:</h2>  {`R$ ${price}`}
       </span>
-      <Button variant="contained">
-        Selectionar
+      <Button variant="contained" onClick={() => window.location.href = '/#/mapa'} >
+        Selecionar
       </Button>
     </div>
 
