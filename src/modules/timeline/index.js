@@ -44,7 +44,7 @@ class Timeline extends Component {
                                 <Card className="timeline-card">
                                     <div className="timeline-body">
                                         <ImageGallery
-                                            items={[{ original: tm.imageUrl }]}
+                                            items={tm.imageUrl}
                                             showThumbnails={false}
                                             showFullscreenButton={false}
                                             showPlayButton={false}
