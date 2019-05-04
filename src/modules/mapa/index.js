@@ -4,24 +4,30 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "reac
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import appState from '../../AppState';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
+import green from '@material-ui/core/colors/green';
+import grey from '@material-ui/core/colors/grey';
+import indigo from '@material-ui/core/colors/indigo';
 
 import './index.css'
 
 class CustomMarker extends Component {
 	state = {
-			showInfoWindow: false
+		showInfoWindow: false
 	};
 
 	handleMouseOver = e => {
-			this.setState({
-					showInfoWindow: true
-			});
+		this.setState({
+			showInfoWindow: true
+		});
 	};
 
 	handleMouseExit = e => {
-			this.setState({
-					showInfoWindow: false
-			});
+		this.setState({
+			showInfoWindow: false
+        });
 	};
 
 	handleClick = e => {
@@ -32,19 +38,19 @@ class CustomMarker extends Component {
 		const { showInfoWindow } = this.state;
 		const { marker } = this.props;
 		return (
-				<Marker
-					position={{ lat: marker.lat, lng: marker.lng }}
-					icon={marker.icon}
-					onMouseOver={this.handleMouseOver}
-					onMouseOut={this.handleMouseExit}
-					onClick={this.handleClick}
-				>
-						{showInfoWindow && (
-								<InfoWindow>
-										<h4>{marker.name}</h4>
-								</InfoWindow>
-						)}
-				</Marker>
+            <Marker
+                position={{ lat: marker.lat, lng: marker.lng }}
+                icon={marker.icon}
+                onMouseOver={this.handleMouseOver}
+                onMouseOut={this.handleMouseExit}
+                onClick={this.handleClick}
+            >
+                {showInfoWindow && (
+                    <InfoWindow>
+                                <h4>{marker.name}</h4>
+                    </InfoWindow>
+                )}
+            </Marker>
 		);
 	}
 }
@@ -121,98 +127,96 @@ class MapaFiltro extends Component {
 	}
 }
 
+const styles = {
+    paper: {
+        padding: '1rem',
+    },
+    divider: {
+        marginBottom: '1rem',
+    }
+
+}
+
 class Mapa extends Component {
 	render () {
 		const { filteredMarkers, currentMarker } = appState.mapa;
 
 		return (
-			<div className="host">
-				<h2>Mapa</h2>
-				<div className="host-content">
-					<div className="host-map">
-						{
-							filteredMarkers.length
-							? <div>
-									<MyMapComponent
-										googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0p0GnaPDtJQfu7Fy9FETmzTlQJrTdd_0&v=3.exp&libraries=geometry,drawing,places"
-										loadingElement={<div style={{ height: `100%` }} />}
-										containerElement={<div style={{ height: `600px` }} />}
-										mapElement={<div style={{ height: `100%` }}/>}
-										markers={filteredMarkers}
-									/>
-									<MapaFiltro />
-								</div>
-							: <div>Carregando...</div>
-						}
-					</div>
-					{
-						filteredMarkers.length
-						?
-						<aside className="host-info">
-						{
-							currentMarker
-							?
-								<div>
-									<h3>Informação { currentMarker.type === 'E'? 'da escola': 'do anfitrião' }</h3>
-									<Grid container spacing={24}>
-
-									<Grid item xs={3}>
-										<div className="avatar-hoster">
-											<img src={currentMarker.profilePicture} alt="" />
-										</div>
-									</Grid>
-
-									<Grid item xs={9}>
-										<div>
-											<strong>Nome: </strong>
-											<span>{currentMarker.name}</span>
-										</div>
-										<div>
-											<strong>Descrição: </strong>
-											<span>{currentMarker.description}</span>
-										</div>
-										<div>
-											<strong>Endereço: </strong>
-											<span>{currentMarker.street}</span>
-										</div>
-									</Grid>
-
-									</Grid>
-
-
-
-									{
-										currentMarker.type !== 'S'
-										?
-											<Button
-												variant="contained"
-												color="primary"
-												className="host-info-btn-select"
-												onClick={() => window.location.href = '/#/timeline'}>
-												Selecionar
-											</Button>
-										: null
-									}
-								</div>
-							: <h3>
-									{
-										filteredMarkers.length
-										? 'Escolha um anfitrião no mapa'
-										: null
-									}
-								</h3>
-						}
-						</aside>
+			<Grid container spacing={24}>
+                <Grid item xs={12}>
+                    <Typography variant="h2" gutterBottom style={{color: indigo[900]}}>
+                        Escolha a sua acomodação
+                    </Typography>
+                    <Typography variant="p" gutterBottom>
+                        Selecione clicandos nos ícones o seu anfitrião
+                    </Typography>
+                </Grid>
+				<Grid item xs={9}>
+                    { filteredMarkers.length ?
+                        <Paper style={styles.paper}>
+                            <MyMapComponent
+                                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0p0GnaPDtJQfu7Fy9FETmzTlQJrTdd_0&v=3.exp&libraries=geometry,drawing,places"
+                                loadingElement={<div style={{ height: `100%` }} />}
+                                containerElement={<div style={{ height: `600px` }} />}
+                                mapElement={<div style={{ height: `100%` }}/>}
+                                markers={filteredMarkers}
+                            />
+                            <MapaFiltro />
+                        </Paper>: <div>Carregando...</div>
+                    }
+                </Grid>
+                <Grid item xs={3}>
+				{ filteredMarkers.length ?
+					<Paper>
+					{ currentMarker ?
+						<Paper style={styles.paper}>
+                            <Typography variant="h4" gutterBottom>
+                                Informação { currentMarker.type === 'E'? 'da escola': 'do anfitrião' }
+                            </Typography>
+							<Typography variant="h6" className="avatar-hoster" gutterBottom>
+                                <img src={currentMarker.profilePicture} alt="" />
+                            </Typography>
+                            <Typography variant="subtitle1" gutterBottom>
+                                {currentMarker.name}
+                            </Typography>
+                            <Typography variant="h6" gutterBottom>
+                                Descrição
+                            </Typography>
+                            <Typography variant="subtitle1" gutterBottom>
+                                {currentMarker.description}
+                            </Typography>
+                            <Typography variant="h6" gutterBottom>
+                                Endereço
+                            </Typography>
+                            <Typography variant="subtitle1" gutterBottom>
+                                {currentMarker.street}
+                            </Typography>
+                            <Divider style={styles.divider} />
+                            { currentMarker.type !== 'S' ?
+                                <Button
+                                    size="large"
+                                    style={{
+                                        backgroundColor: green[600],
+                                        color: grey[50]
+                                    }}
+                                    onClick={() => window.location.href = '/#/timeline'}>
+                                    Selecionar
+                                </Button> : null
+                            }
+                        </Paper>
 						: null
+
 					}
-				</div>
-			</div>
+					</Paper>
+					: null
+					}
+			</Grid>
+        </Grid>
 		);
 	}
 }
 
 observer(Mapa);
-
 appState.loadMap();
 
 export default Mapa;

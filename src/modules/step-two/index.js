@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
+import indigo from '@material-ui/core/colors/indigo';
 
 import cursoIdioma from '../../assets/images/curso-de-idioma.jpg';
 import programaFerias from '../../assets/images/programa-de-ferias.jpg';
@@ -50,7 +51,7 @@ const courses = [
     id: '02',
     title: 'PROGRAMA DE FÉRIAS',
     description:
-      'Programas feitos para você ter uma experiência que vai além do turismo. Os roteiros incluem curso, atividades esportivas, recreativas, viagens e inúmeros passeios, sempre com apoio de locais. A acomodação pode ser em residência estudantil ou casa de família cuidadosamente selecionadas.',
+      'Programas feitos para você ter uma experiência que vai além do turismo. Os roteiros incluem curso, atividades esportivas, recreativas, viagens e inúmeros passeios, sempre com apoio de locais. A acomodação pode ser em residência estudantil ou casa de família.',
     imageUrl: programaFerias
   },
   {
@@ -69,62 +70,58 @@ const courses = [
   }
 ];
 
-class StepTwo extends Component {
-	render() {
-		return (
-			<div style={styles.root}>
-				<Grid container spacing={24}>
-					<Grid item xs={12}>
-						<Typography className="titles" variant="h3">
-							Escolha o seu programa
-						</Typography>
-						<Typography variant="subtitle1" gutterBottom style={styles.subtitle1}>
-							Saiba mais sobre os programas disponíveis e descubra tudo o que a nossa Plataforma pode lhe oferecer
-						</Typography>
-					</Grid>
-					{courses.map((course, index) => (
-						<Grid item xs={3} key={index}>
-							<Card style={styles.card}>
-								<CardActionArea>
-									<CardMedia
-										style={styles.media}
-										image={course.imageUrl}
-										title={course.title}
-									/>
-									<CardContent>
-										<Typography
-											gutterBottom
-											variant="h5"
-											component="h2"
-											style={{ color: green[900] }}
-										>
-											{course.title}
-										</Typography>
-										<Typography component="p">{course.description}</Typography>
-									</CardContent>
-								</CardActionArea>
-								<CardActions>
-									<Button
-										onClick={() => {
-											appState.setSearchParameter('chosenCourse', 'Curso de idiomas');
-										}}
-										size="large"
-										style={{
-											backgroundColor: green[600],
-											color: grey[50]
-										}}
-									>
-										Selecionar
-									</Button>
-								</CardActions>
-							</Card>
-						</Grid>
-					))}
-				</Grid>
-			</div>
-		);
-	}
-}
+const StepTwo = () => {
+  return (
+      <Grid container spacing={24}>
+        <Grid item xs={12}>
+          <Typography variant="h2" style={{color:indigo[900]}}>
+            Escolha o seu programa
+          </Typography>
+          <Typography variant="subtitle1" gutterBottom>
+            Saiba mais sobre os programas disponíveis e descubra tudo o que a nossa Plataforma pode lhe oferecer
+          </Typography>
+        </Grid>
+        {courses.map(course => (
+          <Grid item xs={3}>
+            <Card style={styles.card}>
+              <CardActionArea>
+                <CardMedia
+                  style={styles.media}
+                  image={course.imageUrl}
+                  title={course.title}
+                />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="h2"
+                    style={{ color: green[900] }}
+                  >
+                    {course.title}
+                  </Typography>
+                  <Typography component="p">{course.description}</Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button
+                  onClick={() => {
+                    appState.setSearchParameter('chosenCourse', 'Curso de idiomas');
+                  }}
+                  size="large"
+                  style={{
+                    backgroundColor: green[600],
+                    color: grey[50]
+                  }}
+                >
+                  Selecionar
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+  );
+};
 
 observer(StepTwo);
 
