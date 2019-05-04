@@ -1,7 +1,7 @@
 import React from 'react';
 import appState from '../../AppState';
 import { observer } from 'mobx-react';
-import { withStyles } from '@material-ui/core/styles';
+
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -17,7 +17,7 @@ import cursoIdioma from '../../assets/images/curso-de-idioma.jpg';
 import programaFerias from '../../assets/images/programa-de-ferias.jpg';
 import highSchool from '../../assets/images/high-school.jpg';
 import programaUniversitario from '../../assets/images/programa-universitario.jpg';
-import formacaoProfissional from '../../assets/images/formacao-profissional.jpg';
+// import formacaoProfissional from '../../assets/images/formacao-profissional.jpg';
 
 const styles = {
   root: {
