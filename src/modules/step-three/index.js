@@ -1,7 +1,6 @@
 import React from 'react';
-
 import appState from '../../AppState';
-import { observer } from 'mobx-react';
+import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import grey from '@material-ui/core/colors/grey';
@@ -11,7 +10,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import bannerIdiomas from '../../assets/images/banner-curso-de-idiomas.png'
+import indigo from '@material-ui/core/colors/indigo';
 
 const styles = {
     root: {
@@ -24,19 +23,7 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
     },
-    banner: {
-        marginTop: 13,
-        height: 110,
-        backgroundPosition: 'center',
-        backgroundImage: `url(${bannerIdiomas})`,
-        backgroundSize: 'cover',
-        color: '#fff',
-    },
-    textBaner: {
-        display: 'flex',
-        lineHeight: 1.2,
-        color: grey[50],
-    },
+
     textPaper: {
         padding: '2rem',
     },
@@ -163,21 +150,16 @@ function handleClick() {
 
 const StepThree = () => {
     return (
-        <div style={styles.banner}>
         <Grid container spacing={24}>
             <Grid item xs={12}>
-                <Typography variant="h2" gutterBottom style={styles.textBaner}>
-                    CURSO DE IDIOMAS
+                <Typography variant="h2" style={{color:indigo[900]}}>
+                    Escolha agora um idioma e país para o seu intercâmbio!
+                </Typography>
+                <Typography variant="subtitle1" gutterBottom>
+                    Oportunidade única de desenvolver habilidades do idioma no país onde ele é falado, com professores especializados e apoio de material didático e ótimas instalações. Todas as escolas são de excelente qualidade e escolhidas criteriosamente por nossa equipe de experts.
                 </Typography>
             </Grid>
             <Grid item xs={8}>
-                <Typography variant="h4">
-                    ESCOLHA AGORA UM IDIOMA E PAÍS PARA O SEU INTERCÂMBIO!
-                </Typography>
-                <Typography variant="subtitle1" >
-                    Oportunidade única de desenvolver habilidades do idioma no país onde ele é falado, com professores especializados e apoio de material didático e ótimas instalações. Todas as escolas são de excelente qualidade e escolhidas criteriosamente por nossa equipe de experts.
-                </Typography>
-
                 {idiomas.map(idioma => (
                     <ExpansionPanel>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -207,7 +189,6 @@ const StepThree = () => {
                 ))}
             </Grid>
         </Grid>
-        </div>
     );
 }
 export default StepThree

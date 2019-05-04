@@ -22,7 +22,7 @@ const styles = {
 
 const Header = () => {
   return (
-    <AppBar position="static">
+    <AppBar position="static" gutterBottom>
       <Toolbar>
         <IconButton color="inherit" aria-label="Menu">
           <MenuIcon />

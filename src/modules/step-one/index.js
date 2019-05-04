@@ -14,20 +14,14 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
+import indigo from '@material-ui/core/colors/indigo';
+
 import estudar from '../../assets/images/btn-estudar.jpg';
 import trabalhar from '../../assets/images/bg-trabalho.jpg';
 
 import './index.css';
 
 const styles = {
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    flexGrow: '1',
-    width: '100%',
-    maxWidth: '500'
-  },
   btn: {
     display: 'flex',
     justifyContent: 'center'
@@ -41,11 +35,13 @@ const styles = {
 };
 
 const StepOne = () => (
-  <div style={styles.root}>
     <Grid container spacing={24}>
       <Grid item xs={12}>
-        <Typography className="titles" variant="h3">
+        <Typography variant="h2" style={{color:indigo[900]}}>
           Escolha seu intercâmbio
+        </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+            Para que os estudantes viagem tranquilos e que possam tirar o maior proveito de seu intercâmbio, oferecemos uma linha completa de produtos e serviços para que a experiência de viagem seja completa e inesquecível.
         </Typography>
       </Grid>
       <Grid item style={styles.btn} xs={6}>
@@ -134,7 +130,6 @@ const StepOne = () => (
         </Card>
       </Grid>
     </Grid>
-  </div>
 );
 
 observer(StepOne);

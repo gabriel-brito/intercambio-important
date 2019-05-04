@@ -7,6 +7,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import appState from '../../AppState';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import green from '@material-ui/core/colors/green';
+import grey from '@material-ui/core/colors/grey';
+import indigo from '@material-ui/core/colors/indigo';
 
 import './index.css'
 
@@ -18,59 +22,55 @@ class Timeline extends Component {
 
 	render() {
 		return (
-			<div>
-				<Grid container spacing={24}>
-
-					<Grid item xs={9}>
-						<h2>Linha do tempo</h2>
-						<ul className="timeline">
-							{
-								appState.timeline.list
-									? appState.timeline.list.map(tm => (
-										<li key={tm.id} className="timeline-item">
-											<span className="timeline-date">
-												<span className="timeline-date-label">{tm.date}</span>
-												<span className="timeline-date-bullet"></span>
-											</span>
-											<Card className="timeline-card">
-												
-												<div className="timeline-body">
-													<CardMedia
-														className="timeline-image"
-														image={tm.imageUrl}
-													/>
-													<CardContent className="timeline-content">
-														<h3>{tm.title}</h3>
-														<p>{tm.description}</p>
-													</CardContent>
-												</div>
-											</Card>
-										</li>
-									))
-									: <li>Carregando...</li>
-							}
-						</ul>
-					</Grid>
-
-					<Grid item xs={3}>
-
-						<div className="box">
-							<Grid item xs={12}>
-								<h2>Instituição</h2>
-								<h3>OHC Toronto - Semi-intensivo</h3>
-							</Grid>
-
-							<Grid item xs={12} className="info-item">
-								<h2>Anfitrião</h2>
-								<h3>Família Adams</h3>
-								<p>Tipo de acomodação: Casa</p>
-							</Grid>
-
-						</div>
-
-						<div className="box">
-							<h2>Dados do Viajante</h2>
-							<Grid container spacing={24}>
+            <Grid container spacing={24}>
+                <Grid item xs={12}>
+                    <Typography variant="h2" style={{color:indigo[900]}}>
+                        Conheça a linha do tempo do seu intercâmbio
+                    </Typography>
+                    <Typography variant="subtitle1" gutterBottom>
+                        Para quem curte a natureza, há cerca de 200 reservas nacionais ao longo dos seus 94 mil m2 de extensão, o que representa 57% do Reino Unido. Sua excelente estrutura ferroviária garante facilidade de acesso a todas as cidades.
+                    </Typography>
+                </Grid>
+                <Grid item xs={9}>
+                    <ul className="timeline">
+                        { appState.timeline.list ? appState.timeline.list.map(tm => (
+                            <li key={tm.id} className="timeline-item">
+                                <span className="timeline-date">
+                                    <span className="timeline-date-label">{tm.date}</span>
+                                    <span className="timeline-date-bullet"></span>
+                                </span>
+                                <Card className="timeline-card">
+                                    <div className="timeline-body">
+                                        <CardMedia
+                                            className="timeline-image"
+                                            image={tm.imageUrl}
+                                        />
+                                        <CardContent className="timeline-content">
+                                            <h3>{tm.title}</h3>
+                                            <p>{tm.description}</p>
+                                        </CardContent>
+                                    </div>
+                                </Card>
+                            </li>
+                        )) : <li>Carregando...</li>
+                        }
+                    </ul>
+                </Grid>
+                <Grid item xs={3}>
+                    <div className="box">
+                        <Grid item xs={12}>
+                            <h2>Instituição</h2>
+                            <h3>OHC Toronto - Semi-intensivo</h3>
+                        </Grid>
+                        <Grid item xs={12} className="info-item">
+                            <h2>Anfitrião</h2>
+                            <h3>Família Adams</h3>
+                            <p>Tipo de acomodação: Casa</p>
+                        </Grid>
+                    </div>
+                    <div className="box">
+                        <h2>Dados do Viajante</h2>
+                        <Grid container spacing={24}>
 								<Grid item xs={12}>
 									<TextField
 										required
@@ -113,25 +113,25 @@ class Timeline extends Component {
 										fullWidth />
 								</Grid>
 
-							</Grid>
-						</div>
-					</Grid>
+                        </Grid>
+                    </div>
+                    <div className="timeline-buttons">
+                    <Button
+                        size="large"
+                        style={{
+                            backgroundColor: green[600],
+                            color: grey[50]
+                        }}
+                        onClick={() => window.location.href = '/#/checkout'}>
+                        Continuar
+                    </Button>
+                    </div>
+                </Grid>
 
-				</Grid>
-
-				<div className="timeline-buttons">
-					<Button 
-						variant="contained" 
-						color="primary"
-						onClick={() => window.location.href = '/#/checkout'}>
-						Continuar
-					</Button>
-				</div>
-			</div>
+        </Grid>
 		);
 	}
 }
 
 observer(Timeline)
-
 export default Timeline;
