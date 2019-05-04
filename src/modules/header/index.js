@@ -9,33 +9,33 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 
 const styles = {
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   grow: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20,
-  },
+    marginRight: 20
+  }
 };
 
 const Header = () => {
-    return (
-        <AppBar position="static">
-            <Toolbar>
-                <IconButton color="inherit" aria-label="Menu">
-                    <MenuIcon />
-                </IconButton>
-                <Typography variant="h6" color="inherit" style={styles.grow}>
-                    !Important
-                </Typography>
-                <IconButton color="inherit">
-                  <AccountCircle />
-                </IconButton>
-            </Toolbar>
-        </AppBar>
-        );
-    }
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton color="inherit" aria-label="Menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" color="inherit" style={styles.grow}>
+          !Important
+        </Typography>
+        <IconButton color="inherit">
+          <AccountCircle />
+        </IconButton>
+      </Toolbar>
+    </AppBar>
+  );
+};
 
-export default withStyles(styles)(Header)
+export default withStyles(styles)(Header);
