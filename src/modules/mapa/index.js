@@ -64,9 +64,64 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
 	</GoogleMap>
 ));
 
+class MapaFiltro extends Component {
+	state = {
+		showFamilyFromNetwork: true,
+		showFamilyOutsideNetwork: true,
+		showHotels: true
+	};
+
+	handleCheckboxChange = e => {
+		this.setState({ [e.target.name]: e.target.checked });
+		if (e.target.checked && !appState.mapa.filters.includes(e.target.value)) {
+			appState.mapa.filters.push(e.target.value);
+		}
+		else if (!e.target.checked && appState.mapa.filters.includes(e.target.value)) {
+			appState.mapa.filters = appState.mapa.filters.filter(f => f !== e.target.value);
+		}
+	};
+
+	render() {
+		return (
+			<div class="host-map-filter">
+				<label>
+					<input
+						type="checkbox"
+						name="showFamilyFromNetwork"
+						checked={this.state.showFamilyFromNetwork}
+						onChange={this.handleCheckboxChange}
+						value="HFN"
+					/>
+					Familias credenciada
+				</label>
+				<label>
+					<input
+						type="checkbox"
+						name="showFamilyOutsideNetwork"
+						checked={this.state.showFamilyOutsideNetwork}
+						onChange={this.handleCheckboxChange}
+						value="HF"
+					/>
+					Familias não credenciada
+				</label>
+				<label>
+					<input
+						type="checkbox"
+						name="showHotels"
+						checked={this.state.showHotels}
+						onChange={this.handleCheckboxChange}
+						value="HHN"
+					/>
+					Hoteis
+				</label>
+			</div>
+		);
+	}
+}
+
 class Mapa extends Component {
 	render () {
-		const { markers, currentMarker } = appState.mapa;
+		const { filteredMarkers, currentMarker } = appState.mapa;
 
 		return (
 			<div className="host">
@@ -74,19 +129,22 @@ class Mapa extends Component {
 				<div className="host-content">
 					<div className="host-map">
 						{
-							markers.length
-							? <MyMapComponent
-									googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0p0GnaPDtJQfu7Fy9FETmzTlQJrTdd_0&v=3.exp&libraries=geometry,drawing,places"
-									loadingElement={<div style={{ height: `100%` }} />}
-									containerElement={<div style={{ height: `400px` }} />}
-									mapElement={<div style={{ height: `100%` }}/>}
-									markers={markers}
-								/>
+							filteredMarkers.length
+							? <div>
+									<MyMapComponent
+										googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0p0GnaPDtJQfu7Fy9FETmzTlQJrTdd_0&v=3.exp&libraries=geometry,drawing,places"
+										loadingElement={<div style={{ height: `100%` }} />}
+										containerElement={<div style={{ height: `600px` }} />}
+										mapElement={<div style={{ height: `100%` }}/>}
+										markers={filteredMarkers}
+									/>
+									<MapaFiltro />
+								</div>
 							: <div>Carregando...</div>
 						}
 					</div>
 					{
-						markers.length
+						filteredMarkers.length
 						?
 						<aside className="host-info">
 						{
@@ -107,7 +165,7 @@ class Mapa extends Component {
 										<span>{currentMarker.street}</span>
 									</div>
 									{
-										currentMarker.type !== 'E'
+										currentMarker.type !== 'S'
 										?
 											<Button variant="contained" color="primary" className="host-info-btn-select">
 												Selecionar
@@ -117,7 +175,7 @@ class Mapa extends Component {
 								</div>
 							: <h3>
 									{
-										markers.length
+										filteredMarkers.length
 										? 'Selecione um anfitrião ao lado'
 										: null
 									}
