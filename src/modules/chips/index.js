@@ -24,22 +24,25 @@ class Chips extends Component {
 		const chips = appState.steps.filter(step => step.fields.every(f => f.value));
 
 		return (
+			(chips && chips.length)
+			?
 			<div style={styles.root}>
-				<h4>Seu objetivo é:</h4>
-				{chips.map(step =>
-					<Chip
-						key={step.id}
-						avatar={
-							<Avatar>
-								{step.avatar}
-							</Avatar>
-						}
-						label={step.fields.map(f => f.value).join(',')}
-						deleteIcon={<Clear />}
-						onDelete={() => this.handleDelete(step.id)}
-					/>
-				)}
+					<h4>Seu objetivo é:</h4>
+					{chips.map(step =>
+						<Chip
+							key={step.id}
+							avatar={
+								<Avatar>
+									{step.avatar}
+								</Avatar>
+							}
+							label={step.fields.map(f => f.value).join(',')}
+							deleteIcon={<Clear />}
+							onDelete={() => this.handleDelete(step.id)}
+						/>
+					)}
 			</div>
+			: null
 		);
 	}
 }
