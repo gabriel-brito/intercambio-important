@@ -17,25 +17,31 @@ class AppState {
 		setTimeout(() => {
 			this.mapa.loadMarkers([
 				{
-					type: 'E',
+					type: 'S',
 					street: '97 White Lion St, The Angel, London N1 9PF, Reino Unido',
 					name: 'Escola de idioma Bartolomeu',
 					description: 'Escola renomada no bairro'
 				},
 				{
-					type: 'EH',
+					type: 'H',
+					subType: 'F',
+					isFromSchoolNetwork: true,
 					street: '35 White Lion St, The Angel, London N1 9PF, Reino Unido',
 					name: 'Pedro e Maria',
 					description: 'Casal com 1 cachorro e 2 filhos'
 				},
 				{
-					type: 'EH',
+					type: 'H',
+					subType: 'H',
+					isFromSchoolNetwork: true,
 					street: '4 Liverpool Rd The Angel, London N1 0PH Reino Unido',
 					name: 'Dona Benta',
 					description: 'Idosa muito maneira'
 				},
 				{
-					type: 'SH',
+					type: 'H',
+					subType: 'F',
+					isFromSchoolNetwork: false,
 					street: 'Elia Mews The Angel, London Reino Unido',
 					name: 'Silvio Santos',
 					description: 'Um moço do SBT'
