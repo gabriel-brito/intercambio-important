@@ -96,7 +96,7 @@ class AppState {
 					isFromSchoolNetwork: true,
 					street: '35 White Lion St, The Angel, London N1 9PF, Reino Unido',
 					name: 'Pedro e Maria',
-					description: 'Casal com 1 cachorro e 2 filhos',
+					description: 'Somos uma familia de origem espanhola, com uma filha de 12 anos, um filho pequeno e um gato.',
 					price: '2.000,00',
 					profilePicture: mapFamily
 				},
@@ -116,7 +116,7 @@ class AppState {
 					isFromSchoolNetwork: false,
 					street: 'Elia Mews The Angel, London Reino Unido',
 					name: 'Dona Benta',
-					description: 'Idosa muito maneira',
+					description: 'Familia vegetariana, não possui animais de estimação... Somos um casal José Carlos canadense e Madelaine inglesa.',
 					price: '1.500,00',
 					profilePicture: mapFamily2
 				}

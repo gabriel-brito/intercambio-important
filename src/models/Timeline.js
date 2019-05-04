@@ -18,35 +18,35 @@ class Timeline extends Component {
 					title: 'Museu do outro mundo',
 					date: '1° dia',
 					description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s',
-					imageUrl: museu
+					imageUrl: [{ original: museu }, { original: parque }]
 				},
 				{
 					id: 2,
 					title: 'Parque vira copo',
 					date: '2° dia',
 					description: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock',
-					imageUrl: parque
+					imageUrl: [{ original: parque }]
 				},
 				{
 					id: 3,
 					title: 'Aquário',
 					date: '3° dia',
 					description: 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from',
-					imageUrl: museu
+					imageUrl: [{ original: museu }]
 				},
 				{
 					id: 4,
 					title: 'Passeio de barco',
 					date: '4° dia',
 					description: 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from',
-					imageUrl: parque
+					imageUrl: [{ original: parque }]
 				},
 				{
 					id: 5,
 					title: 'Festival de Chopp',
 					date: '5° dia',
 					description: 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from',
-					imageUrl: museu
+					imageUrl: [{ original: museu }]
 				}
 			].map(item => new TimelineItem(item));
 		}, 2000);
