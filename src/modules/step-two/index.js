@@ -1,7 +1,6 @@
 import React from 'react';
 import appState from '../../AppState';
 import { observer } from 'mobx-react';
-
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -17,7 +16,6 @@ import cursoIdioma from '../../assets/images/curso-de-idioma.jpg';
 import programaFerias from '../../assets/images/programa-de-ferias.jpg';
 import highSchool from '../../assets/images/high-school.jpg';
 import programaUniversitario from '../../assets/images/programa-universitario.jpg';
-// import formacaoProfissional from '../../assets/images/formacao-profissional.jpg';
 
 const styles = {
   root: {
@@ -34,6 +32,9 @@ const styles = {
   media: {
     height: 200,
     objectFit: 'cover'
+  },
+  subtitle1: {
+    textAlign: 'center'
   }
 };
 
@@ -56,7 +57,7 @@ const courses = [
     id: '03',
     title: 'HIGH SCHOOL',
     description:
-      'Programa para você que deseja cursar o Ensino Médio no exterior, vivenciar o dia-a-dia como cidadão do país escolhido, fazer novos amigos, participar de atividades sociais, culturais e desportivas e enfrentar o mundo de forma mais autônoma e independente. Opções de escolas públicas e particulares.',
+      'Programa para você que deseja cursar o Ensino Médio no exterior, vivenciar o dia-a-dia como cidadão do país escolhido, fazer novos amigos, participar de atividades sociais, culturais e desportivas e enfrentar o mundo de forma mais autônoma e independente.',
     imageUrl: highSchool
   },
   {
@@ -74,9 +75,9 @@ const StepTwo = () => {
       <Grid container spacing={24}>
         <Grid item xs={12}>
           <Typography className="titles" variant="h3">
-            Escolha o seu programa:
+            Escolha o seu programa
           </Typography>
-          <Typography variant="subtitle1" gutterBottom>
+          <Typography variant="subtitle1" gutterBottom style={styles.subtitle1}>
             Saiba mais sobre nossos programas e descubra tudo o que a
             Experimento pode oferecer:
           </Typography>

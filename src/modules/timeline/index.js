@@ -120,7 +120,10 @@ class Timeline extends Component {
 				</Grid>
 
 				<div className="timeline-buttons">
-					<Button variant="contained" color="primary">
+					<Button 
+						variant="contained" 
+						color="primary"
+						onClick={() => window.location.href = '/#/checkout'}>
 						Continuar
 					</Button>
 				</div>
