@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import appState from '../../AppState';
 
 import './index.css'
@@ -65,6 +66,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
 ));
 
 class MapaFiltro extends Component {
+	
 	state = {
 		showFamilyFromNetwork: true,
 		showFamilyOutsideNetwork: true,
@@ -83,7 +85,7 @@ class MapaFiltro extends Component {
 
 	render() {
 		return (
-			<div class="host-map-filter">
+			<div className="host-map-filter">
 				<label>
 					<input
 						type="checkbox"
@@ -152,18 +154,33 @@ class Mapa extends Component {
 							?
 								<div>
 									<h3>Informação { currentMarker.type === 'E'? 'da escola': 'do anfitrião' }</h3>
-									<div>
-										<strong>Nome: </strong>
-										<span>{currentMarker.name}</span>
-									</div>
-									<div>
-										<strong>Descrição: </strong>
-										<span>{currentMarker.description}</span>
-									</div>
-									<div>
-										<strong>Endereço: </strong>
-										<span>{currentMarker.street}</span>
-									</div>
+									<Grid container spacing={24}>
+
+									<Grid item xs={3}>
+										<div className="avatar-hoster">
+										imagem
+										</div>
+									</Grid>
+
+									<Grid item xs={9}>
+										<div>
+											<strong>Nome: </strong>
+											<span>{currentMarker.name}</span>
+										</div>
+										<div>
+											<strong>Descrição: </strong>
+											<span>{currentMarker.description}</span>
+										</div>
+										<div>
+											<strong>Endereço: </strong>
+											<span>{currentMarker.street}</span>
+										</div>
+									</Grid>
+
+									</Grid>
+
+
+									
 									{
 										currentMarker.type !== 'S'
 										?
@@ -180,7 +197,7 @@ class Mapa extends Component {
 							: <h3>
 									{
 										filteredMarkers.length
-										? 'Selecione um anfitrião ao lado'
+										? 'Escolha um anfitrião no mapa'
 										: null
 									}
 								</h3>
