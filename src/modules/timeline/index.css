@@ -1,5 +1,10 @@
 .timeline {
 	padding: 0;
+    height: 600px;
+    overflow-y: scroll;
+    border-top: solid 1px #716565;
+    background-color: white;
+    border-bottom: solid 1px #716565;
 }
 
 .timeline-price {
@@ -43,13 +48,17 @@
 	margin-top: 10px;
 }
 
+.timeline .timeline-header {
+	background: #c4e1e2
+}
+
 .timeline .timeline-card .timeline-body {
 	display: flex;
 }
 
 .timeline .timeline-card .timeline-body .timeline-image {
 	height: 150px;
-	width: 150px;
+	width: 400px;
 }
 
 .timeline .timeline-card .timeline-body .timeline-content {
@@ -61,4 +70,9 @@
 	margin-top: 40px;
 	padding-top: 20px;
 	text-align: right;
+}
+
+.box {
+	display: inline-block;
+	margin-bottom: 30px
 }

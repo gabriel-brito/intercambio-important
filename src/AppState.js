@@ -1,4 +1,5 @@
 import { decorate, observable, action } from 'mobx';
+import { Component } from 'react';
 import Timeline from './models/Timeline';
 import ResultParameters from './models/ResultParameters';
 import AccomodationState from './models/AccomodationState';
