@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AcademicResult from '../academic-result';
 import appState from '../../AppState';
 import Grid from '@material-ui/core/Grid';
@@ -37,79 +37,64 @@ const accomodation3 = {
   type: 'Apartamento'
 }
 
-const Resultado = () => (
-    <Grid container spacing={24}>
-        <Grid item xs={12}>
-            <Typography variant="h2" style={{color:indigo[900]}}>
-                Conheça as escolas e escolha a sua!
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-                Oportunidade única de desenvolver habilidades do idioma no país onde ele é falado, com professores especializados e apoio de material didático e ótimas instalações. Todas as escolas são de excelente qualidade e escolhidas criteriosamente por nossa equipe de experts.
-            </Typography>
-        </Grid>
-        <Grid item xs={12}>
-            <AcademicResult
-            aboutSchool='Na OHC, achamos que aprender e estudar inglês deve ser fácil, divertido e recompensador! Nossos alunos parecem concordar conosco desde que começamos a ensinar em 1974 e têm crescido desde então!'
-            accomodation={accomodation}
-            name='OHC Toronto'
-            course='Semi-intensivo'
-            price='12.259,51'
-            />
+class Resultado extends Component {
+    constructor() {
+      super()
 
-    <AcademicResult
-      aboutSchool='Na OHC, achamos que aprender e estudar inglês deve ser fácil, divertido e recompensador! Nossos alunos parecem concordar conosco desde que começamos a ensinar em 1974 e têm crescido desde então!'
-			accomodation={accomodation}
-			address={accomodation.address}
-			location={appState.resultParameters.location}
-      name='OHC Toronto'
-      course='Semi-intensivo'
-      price='12.259,51'
-    />
-    <AcademicResult
-      aboutSchool='A ILSC Language Schools tem oferecido programas de treinamento de idiomas para estudantes internacionais de mais de 100 países desde 1991, e é a maior e mais antiga divisão do ILSC Education Group, que também inclui Faculdades, Formação de Professores, Treinamento de Idiomas para Negócios e Educação Continuada.'
-      accomodation={accomodation2}
-			address={accomodation2.address}
-			location={appState.resultParameters.location}
-      name='LSI Toronto'
-      course='Intensivo'
-      price='27.327,35'
-    />
-    <AcademicResult
-      aboutSchool='A ILAC possui instalações modernas em estilo boutique em Toronto e Vancouver, duas das melhores cidades para se viver no mundo, de acordo com a UNESCO.'
-      accomodation={accomodation3}
-			address={accomodation3.address}
-			location={appState.resultParameters.location}
-      name='ILAC'
-      course='Curso Regular'
-      price='9.125,35'
-    />
-    <AcademicResult
-      aboutSchool='A ILAC possui instalações modernas em estilo boutique em Toronto e Vancouver, duas das melhores cidades para se viver no mundo, de acordo com a UNESCO.'
-      accomodation={accomodation3}
-			address={accomodation3.address}
-			location={appState.resultParameters.location}
-      name='ILAC'
-      course='Curso Regular'
-      price='9.125,35'
-    />
+      this.state = {
+        data: ''
+      }
 
-            <AcademicResult
-            aboutSchool='A ILAC possui instalações modernas em estilo boutique em Toronto e Vancouver, duas das melhores cidades para se viver no mundo, de acordo com a UNESCO.'
-            accomodation={accomodation3}
-            name='ILAC'
-            course='Curso Regular'
-            price='9.125,35'
-            />
+      this.gettingData = async () => {
+        let data;
+        const URL = 
+        'http://intercambio-env.syupiu5fcm.us-east-2.elasticbeanstalk.com/instituicoes';
 
-            <AcademicResult
-            aboutSchool='A ILAC possui instalações modernas em estilo boutique em Toronto e Vancouver, duas das melhores cidades para se viver no mundo, de acordo com a UNESCO.'
-            accomodation={accomodation3}
-            name='ILAC'
-            course='Curso Regular'
-            price='9.125,35'
-            />
-        </Grid>
-    </Grid>
-);
+        try {
+          data = await fetch(URL)
+            .then(data => data.json());
+        } catch (e) {
+          console.log(e.message);
+        }
+
+        return data;
+      }
+    }
+
+    async componentDidMount() {
+      let data = await this.gettingData();
+      this.setState({ data });
+    }
+
+    render() {
+      return (
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+              <Typography variant="h2" style={{color:indigo[900]}}>
+                  Conheça as escolas e escolha a sua!
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom>
+                  Oportunidade única de desenvolver habilidades do idioma no país onde ele é falado, com professores especializados e apoio de material didático e ótimas instalações. Todas as escolas são de excelente qualidade e escolhidas criteriosamente por nossa equipe de experts.
+              </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            { !this.state.data 
+              ? <h2>Carregando...</h2> 
+              : this.state.data.map((item, index) => {
+                return (<AcademicResult
+                  key={index} 
+                  aboutSchool={item.dsInfo}
+                  address={item.dsLogradouro}
+                  name={item.nmInstituicao}
+                  location={`${item.dsCidade}, ${item.dsPais}`}
+                  price='13.356,99'
+                />)
+              })
+            }              
+          </Grid>
+      </Grid>
+      );
+    }
+};
 
 export default Resultado;

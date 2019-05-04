@@ -55,7 +55,7 @@ class AcademicResult extends Component {
             <Grid container spacing={24}>
                 <Grid item xs={9}>
                     <Typography variant="h5" style={{color:indigo[900]}}>
-                        {name} - {course} - {location}
+                        {name} - {course} {location}
                     </Typography>
                     <Typography variant="p" gutterBottom>
                         {aboutSchool}
