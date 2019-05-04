@@ -24,9 +24,16 @@
   border-left: 1px solid lightgray;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  min-height: 125px;
+  justify-content: space-around;
   padding-left: 10px;
   width: 30%;
+}
+
+.financial h2 {
+  color: gray;
+  font-size: 20px;
+  margin: 0;
 }
 
 .resultList__informations.financial button {
@@ -42,10 +49,6 @@
   background-color: #1884db;
 }
 
-.resultList__informations.financial h2 {
-  margin: 0;
-}
-
 .resultList__informations.info {
   max-width: 95%;
 }
@@ -54,17 +57,9 @@
   margin: 10px auto;
 }
 
-.info p.school {
-  padding-bottom: 13px;
-  border-bottom: 1px solid lightgray;
-}
-
-.info p.accomodation span {
-  display: block;
-}
-
 span.amount {
   color: #85bb65;
   font-size: 22px;
   font-weight: 700;
+  margin: 5px 0;
 }
