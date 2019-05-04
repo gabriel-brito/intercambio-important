@@ -11,4 +11,8 @@
 
 .breadcrumb [role=button] {
 	margin-left: 10px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dev
