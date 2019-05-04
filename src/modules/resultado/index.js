@@ -1,5 +1,6 @@
 import React from 'react';
 import AcademicResult from '../academic-result';
+import appState from '../../AppState';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import indigo from '@material-ui/core/colors/indigo';
@@ -16,21 +17,21 @@ const styles = {
 }
 
 const accomodation = {
-  adress: 'Alexander Street',
+  address: 'Alexander Street',
   host: 'Paralelepipido',
   number: '666',
   type: 'Casa'
 }
 
 const accomodation2 = {
-  adress: 'Pipipi popopo Street',
+  address: 'Pipipi popopo Street',
   host: 'Zéca Urubu',
   number: '333',
   type: 'Casa'
 }
 
 const accomodation3 = {
-  adress: 'Chavão dichavador Street',
+  address: 'Chavão dichavador Street',
   host: 'Kiko',
   number: '564654',
   type: 'Apartamento'
@@ -55,13 +56,42 @@ const Resultado = () => (
             price='12.259,51'
             />
 
-            <AcademicResult
-            aboutSchool='A ILSC Language Schools tem oferecido programas de treinamento de idiomas para estudantes internacionais de mais de 100 países desde 1991, e é a maior e mais antiga divisão do ILSC Education Group, que também inclui Faculdades, Formação de Professores, Treinamento de Idiomas para Negócios e Educação Continuada.'
-            accomodation={accomodation2}
-            name='LSI Toronto'
-            course='Intensivo'
-            price='27.327,35'
-            />
+    <AcademicResult
+      aboutSchool='Na OHC, achamos que aprender e estudar inglês deve ser fácil, divertido e recompensador! Nossos alunos parecem concordar conosco desde que começamos a ensinar em 1974 e têm crescido desde então!'
+			accomodation={accomodation}
+			address={accomodation.address}
+			location={appState.resultParameters.location}
+      name='OHC Toronto'
+      course='Semi-intensivo'
+      price='12.259,51'
+    />
+    <AcademicResult
+      aboutSchool='A ILSC Language Schools tem oferecido programas de treinamento de idiomas para estudantes internacionais de mais de 100 países desde 1991, e é a maior e mais antiga divisão do ILSC Education Group, que também inclui Faculdades, Formação de Professores, Treinamento de Idiomas para Negócios e Educação Continuada.'
+      accomodation={accomodation2}
+			address={accomodation2.address}
+			location={appState.resultParameters.location}
+      name='LSI Toronto'
+      course='Intensivo'
+      price='27.327,35'
+    />
+    <AcademicResult
+      aboutSchool='A ILAC possui instalações modernas em estilo boutique em Toronto e Vancouver, duas das melhores cidades para se viver no mundo, de acordo com a UNESCO.'
+      accomodation={accomodation3}
+			address={accomodation3.address}
+			location={appState.resultParameters.location}
+      name='ILAC'
+      course='Curso Regular'
+      price='9.125,35'
+    />
+    <AcademicResult
+      aboutSchool='A ILAC possui instalações modernas em estilo boutique em Toronto e Vancouver, duas das melhores cidades para se viver no mundo, de acordo com a UNESCO.'
+      accomodation={accomodation3}
+			address={accomodation3.address}
+			location={appState.resultParameters.location}
+      name='ILAC'
+      course='Curso Regular'
+      price='9.125,35'
+    />
 
             <AcademicResult
             aboutSchool='A ILAC possui instalações modernas em estilo boutique em Toronto e Vancouver, duas das melhores cidades para se viver no mundo, de acordo com a UNESCO.'

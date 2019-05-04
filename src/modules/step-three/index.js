@@ -1,5 +1,6 @@
 import React from 'react';
 import appState from '../../AppState';
+(??)import { observer } from 'mobx-react';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -10,6 +11,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+import bannerIdiomas from '../../assets/images/banner-curso-de-idiomas.png'
 import indigo from '@material-ui/core/colors/indigo';
 
 const styles = {
@@ -23,7 +25,19 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
     },
-
+    banner: {
+        marginTop: 13,
+        height: 110,
+        backgroundPosition: 'center',
+        backgroundImage: `url(${bannerIdiomas})`,
+        backgroundSize: 'cover',
+        color: '#fff',
+    },
+    textBaner: {
+        display: 'flex',
+        lineHeight: 1.2,
+        color: grey[50],
+    },
     textPaper: {
         padding: '2rem',
     },
@@ -144,10 +158,6 @@ const idiomas = [
     },
 ];
 
-function handleClick() {
-    alert('You clicked the Chip.'); // eslint-disable-line no-alert
-  }
-
 const StepThree = () => {
     return (
         <Grid container spacing={24}>
@@ -161,7 +171,7 @@ const StepThree = () => {
             </Grid>
             <Grid item xs={8}>
                 {idiomas.map(idioma => (
-                    <ExpansionPanel>
+                    <ExpansionPanel key={idioma.name}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                         <div style={styles.column}>
                             <Typography style={styles.heading}>{idioma.name}</Typography>
@@ -175,9 +185,8 @@ const StepThree = () => {
                                 <Chip
                                     clickable
                                     onClick={() =>{
-                                        appState.incrementStep();
-                                        appState
-                                          .resultParameters.chosenCourse = 'Resultado';
+																			appState.setSearchParameter('language', idioma.name);
+																			appState.setSearchParameter('location', pais.name);
                                     }}
                                     key={pais.name}
                                     label={pais.name}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import appState from '../../AppState';
 import { observer } from 'mobx-react';
 import Grid from '@material-ui/core/Grid';
@@ -34,6 +34,9 @@ const styles = {
     height: 200,
     objectFit: 'cover'
   },
+  subtitle1: {
+    textAlign: 'center'
+  }
 };
 
 const courses = [

@@ -6,17 +6,25 @@ import StepThree from '../../modules/step-three';
 import Resultado from '../../modules/resultado';
 import appState from '../../AppState';
 
+const stepperTemplate = {
+	1: <StepOne />,
+	2: <StepTwo />,
+	3: <StepThree />,
+	4: <Resultado />
+}
+
 class Stepper extends Component {
-  render() {
-    return (
-      <main>
-        {appState.step === 1 ? <StepOne /> : ''}
-        {appState.step === 2 ? <StepTwo /> : ''}
-        {appState.step === 3 ? <StepThree /> : ''}
-        {appState.step === 4 ? <Resultado /> : ''}
-      </main>
-    );
-  }
+	render() {
+		return (
+			<main>
+				{
+					appState.step
+					? (stepperTemplate[appState.step.id] || '')
+					: null
+				}
+			</main>
+		);
+	}
 }
 
 observer(Stepper);

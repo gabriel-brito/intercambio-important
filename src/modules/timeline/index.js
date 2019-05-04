@@ -13,6 +13,7 @@ import grey from '@material-ui/core/colors/grey';
 import indigo from '@material-ui/core/colors/indigo';
 
 import './index.css'
+import { isWidthDown } from '@material-ui/core/withWidth';
 
 class Timeline extends Component {
 
@@ -113,22 +114,21 @@ class Timeline extends Component {
 										fullWidth />
 								</Grid>
 
-                        </Grid>
-                    </div>
-                    <div className="timeline-buttons">
-                    <Button
-                        size="large"
-                        style={{
-                            backgroundColor: green[600],
-                            color: grey[50]
-                        }}
-                        onClick={() => window.location.href = '/#/checkout'}>
-                        Continuar
-                    </Button>
-                    </div>
-                </Grid>
+(??)							</Grid>
+(??)						</div>
+(??)					</Grid>
 
-        </Grid>
+(??)				</Grid>
+(??)
+(??)				<div className="timeline-buttons">
+(??)					<Button 
+(??)						variant="contained" 
+(??)						color="primary"
+(??)						onClick={() => window.location.href = '/#/checkout'}>
+(??)						Continuar
+(??)					</Button>
+(??)				</div>
+(??)			</div>
 		);
 	}
 }

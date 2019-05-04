@@ -1,0 +1,10 @@
+.breadcrumb {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.breadcrumb h4 {
+	margin-right: 5px;
+}

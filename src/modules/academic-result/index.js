@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import appState from '../../AppState';
 import Typography from '@material-ui/core/Typography';
 import indigo from '@material-ui/core/colors/indigo';
 import Divider from '@material-ui/core/Divider';
@@ -32,15 +34,22 @@ const styles = {
         justifyContent: 'flex-end',
     }
 }
+class AcademicResult extends Component {
+	handleSelecionarClick = schoolName => {
+		appState.setSearchParameter('school', schoolName);
+		window.location.href = '/#/mapa';
+	};
 
-const AcademicResult = ({
-  aboutSchool,
-  address,
-  course,
-  location,
-  name,
-  price
-}) => (
+render() {
+		const {
+			aboutSchool,
+			address,
+			course,
+			location,
+			name,
+			price
+		} = this.props;
+return (
     <Card style={styles.card}>
     <CardContent>
         <Grid container spacing={24}>
@@ -75,7 +84,6 @@ const AcademicResult = ({
         </CardActions>
     </Card>
 
-);
 
 AcademicResult.propTypes = {
   aboutSchool: PropTypes.string.isRequired,
@@ -85,5 +93,7 @@ AcademicResult.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired
 }
+
+observer(AcademicResult);
 
 export default AcademicResult;

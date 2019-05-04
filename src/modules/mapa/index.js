@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import appState from '../../AppState';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -72,6 +73,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
 ));
 
 class MapaFiltro extends Component {
+	
 	state = {
 		showFamilyFromNetwork: true,
 		showFamilyOutsideNetwork: true,
@@ -90,7 +92,7 @@ class MapaFiltro extends Component {
 
 	render() {
 		return (
-			<div class="host-map-filter">
+			<div className="host-map-filter">
 				<label>
 					<input
 						type="checkbox"

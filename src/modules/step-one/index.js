@@ -75,8 +75,7 @@ const StepOne = () => (
           <CardActions>
             <Button
               onClick={() => {
-                appState.incrementStep();
-                appState.resultParameters.travelReason = 'estudar';
+								appState.setSearchParameter('travelReason', 'estudar');
               }}
               size="large"
               style={{
