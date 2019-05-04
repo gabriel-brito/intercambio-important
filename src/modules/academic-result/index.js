@@ -5,7 +5,8 @@ import Button from '@material-ui/core/Button';
 import './index.css'
 
 const AcademicResult = ({ 
-  aboutSchool, 
+  aboutSchool,
+  address,
   course, 
   location,
   name, 
@@ -19,6 +20,9 @@ const AcademicResult = ({
       <div className='resultList__informations info'>
         <p className='school'>
           {aboutSchool}
+        </p>
+        <p>
+          Endereço: <i>{address}</i>
         </p>
       </div>
 
@@ -38,6 +42,7 @@ const AcademicResult = ({
 
 AcademicResult.propTypes = {
   aboutSchool: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
   course: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
