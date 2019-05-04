@@ -1,0 +1,34 @@
+
+.root {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 500;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.titles {
+    margin-top: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.button {
+    width: 90%;
+    height: 30vh;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFF;
+    border-radius: 7px;
+}
+
+
+
