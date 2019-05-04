@@ -11,6 +11,7 @@ import StartDate from './models/StartDate';
 import Mapa from './models/Mapa';
 import mapFamily from './assets/images/timeline/family.png';
 import mapFamily2 from './assets/images/timeline/family2.png';
+import mapFamily3 from './assets/images/timeline/family3.png';
 import mapHotel from './assets/images/timeline/hotel.png';
 import mapSchool from './assets/images/timeline/school.png';
 
@@ -102,6 +103,16 @@ class AppState {
 				},
 				{
 					type: 'H',
+					subType: 'F',
+					isFromSchoolNetwork: true,
+					street: 'Chapel Market, The Angel, London, N1 9PZ, UK',
+					name: 'Gabriele',
+					description: 'Moro sozinha, tenho habilidades culinárias de chef de cozinha. Gosto de receber pessoas e tenho animais de estimação',
+					price: '1.300,00',
+					profilePicture: mapFamily3
+				},
+				{
+					type: 'H',
 					subType: 'H',
 					isFromSchoolNetwork: true,
 					street: '4 Liverpool Rd The Angel, London N1 0PH Reino Unido',
@@ -115,7 +126,7 @@ class AppState {
 					subType: 'F',
 					isFromSchoolNetwork: false,
 					street: 'Elia Mews The Angel, London Reino Unido',
-					name: 'Dona Benta',
+					name: 'Maria e Lucas',
 					description: 'Familia vegetariana, não possui animais de estimação... Somos um casal José Carlos canadense e Madelaine inglesa.',
 					price: '1.500,00',
 					profilePicture: mapFamily2
