@@ -1,4 +1,6 @@
 import React from 'react';
+import appState from '../../AppState';
+import { observer } from 'mobx-react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -102,6 +104,11 @@ const StepTwo = () => {
               </CardActionArea>
               <CardActions>
                 <Button
+                  onClick={() => {
+                    appState.incrementStep();
+                    appState
+                      .resultParameters.chosenCourse = 'Curso de idiomas';
+                  }}
                   size="large"
                   style={{
                     backgroundColor: green[600],
@@ -118,5 +125,7 @@ const StepTwo = () => {
     </div>
   );
 };
+
+observer(StepTwo);
 
 export default StepTwo;
