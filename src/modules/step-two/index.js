@@ -78,8 +78,7 @@ const StepTwo = () => {
             Escolha o seu programa
           </Typography>
           <Typography variant="subtitle1" gutterBottom style={styles.subtitle1}>
-            Saiba mais sobre nossos programas e descubra tudo o que a
-            Experimento pode oferecer:
+            Saiba mais sobre os programas disponíveis e descubra tudo o que a nossa Plataforma pode lhe oferecer
           </Typography>
         </Grid>
         {courses.map(course => (
