@@ -1,7 +1,6 @@
 import React from 'react';
 
 import appState from '../../AppState';
-import { observer } from 'mobx-react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import grey from '@material-ui/core/colors/grey';
@@ -157,10 +156,6 @@ const idiomas = [
     },
 ];
 
-function handleClick() {
-    alert('You clicked the Chip.'); // eslint-disable-line no-alert
-  }
-
 const StepThree = () => {
     return (
         <div style={styles.banner}>
@@ -179,7 +174,7 @@ const StepThree = () => {
                 </Typography>
 
                 {idiomas.map(idioma => (
-                    <ExpansionPanel>
+                    <ExpansionPanel key={idioma.name}>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                         <div style={styles.column}>
                             <Typography style={styles.heading}>{idioma.name}</Typography>
@@ -193,9 +188,8 @@ const StepThree = () => {
                                 <Chip
                                     clickable
                                     onClick={() =>{
-                                        appState.incrementStep();
-                                        appState
-                                          .resultParameters.chosenCourse = 'Resultado';
+																			appState.setSearchParameter('language', idioma.name);
+																			appState.setSearchParameter('location', pais.name);
                                     }}
                                     key={pais.name}
                                     label={pais.name}

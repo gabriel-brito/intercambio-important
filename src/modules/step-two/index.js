@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import appState from '../../AppState';
 import { observer } from 'mobx-react';
 import Grid from '@material-ui/core/Grid';
@@ -69,62 +69,62 @@ const courses = [
   }
 ];
 
-const StepTwo = () => {
-  return (
-    <div style={styles.root}>
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <Typography className="titles" variant="h3">
-            Escolha o seu programa
-          </Typography>
-          <Typography variant="subtitle1" gutterBottom style={styles.subtitle1}>
-            Saiba mais sobre os programas disponíveis e descubra tudo o que a nossa Plataforma pode lhe oferecer
-          </Typography>
-        </Grid>
-        {courses.map(course => (
-          <Grid item xs={3}>
-            <Card style={styles.card}>
-              <CardActionArea>
-                <CardMedia
-                  style={styles.media}
-                  image={course.imageUrl}
-                  title={course.title}
-                />
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="h2"
-                    style={{ color: green[900] }}
-                  >
-                    {course.title}
-                  </Typography>
-                  <Typography component="p">{course.description}</Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button
-                  onClick={() => {
-                    appState.incrementStep();
-                    appState
-                      .resultParameters.chosenCourse = 'Curso de idiomas';
-                  }}
-                  size="large"
-                  style={{
-                    backgroundColor: green[600],
-                    color: grey[50]
-                  }}
-                >
-                  Selecionar
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </div>
-  );
-};
+class StepTwo extends Component {
+	render() {
+		return (
+			<div style={styles.root}>
+				<Grid container spacing={24}>
+					<Grid item xs={12}>
+						<Typography className="titles" variant="h3">
+							Escolha o seu programa
+						</Typography>
+						<Typography variant="subtitle1" gutterBottom style={styles.subtitle1}>
+							Saiba mais sobre os programas disponíveis e descubra tudo o que a nossa Plataforma pode lhe oferecer
+						</Typography>
+					</Grid>
+					{courses.map((course, index) => (
+						<Grid item xs={3} key={index}>
+							<Card style={styles.card}>
+								<CardActionArea>
+									<CardMedia
+										style={styles.media}
+										image={course.imageUrl}
+										title={course.title}
+									/>
+									<CardContent>
+										<Typography
+											gutterBottom
+											variant="h5"
+											component="h2"
+											style={{ color: green[900] }}
+										>
+											{course.title}
+										</Typography>
+										<Typography component="p">{course.description}</Typography>
+									</CardContent>
+								</CardActionArea>
+								<CardActions>
+									<Button
+										onClick={() => {
+											appState.setSearchParameter('chosenCourse', 'Curso de idiomas');
+										}}
+										size="large"
+										style={{
+											backgroundColor: green[600],
+											color: grey[50]
+										}}
+									>
+										Selecionar
+									</Button>
+								</CardActions>
+							</Card>
+						</Grid>
+					))}
+				</Grid>
+			</div>
+		);
+	}
+}
 
 observer(StepTwo);
 

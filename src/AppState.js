@@ -1,4 +1,8 @@
-import { decorate, observable, action } from 'mobx';
+import React from 'react';
+import { decorate, observable, action, computed } from 'mobx';
+import School from '@material-ui/icons/School';
+import SwapHoriz from '@material-ui/icons/SwapHoriz';
+import Language from '@material-ui/icons/Language';
 import Timeline from './models/Timeline';
 import ResultParameters from './models/ResultParameters';
 import AccomodationState from './models/AccomodationState';
@@ -6,12 +10,70 @@ import StartDate from './models/StartDate';
 import Mapa from './models/Mapa';
 
 class AppState {
-	step = 1;
+	steps = [
+		{
+			id: 1,
+			fields: [
+				{
+					name: 'travelReason',
+					value: null
+				}
+			],
+			avatar: <School />
+		},
+		{
+			id: 2,
+			fields: [
+				{
+					name: 'chosenCourse',
+					value: null
+				}
+			],
+			avatar: <SwapHoriz />
+		},
+		{
+			id: 3,
+			fields: [
+				{
+					name: 'language',
+					value: null
+				},
+				{
+					name: 'location',
+					value: null
+				}
+			],
+			avatar: <Language />
+		},
+		{
+			id: 4,
+			fields: [
+				{
+					name: 'school',
+					value: null
+				}
+			],
+			avatar: <Language />
+		}
+	];
 	timeline = new Timeline();
 	accomodationState = new AccomodationState();
 	resultParameters = new ResultParameters();
 	startDate = new StartDate();
 	mapa = new Mapa();
+
+	get step() {
+		return this.steps.find(s => s.fields.some(f => f.value === null));
+	}
+
+	setSearchParameter = (name, value) => {
+		this.step.fields.find(f => f.name === name).value = value;
+		this.resultParameters[name] = value;
+	};
+
+	rollbackStep = id => {
+		this.steps.filter(s => s.id >= id).forEach(s => s.fields.forEach(f => f.value = null));
+	};
 
 	loadMap = address => {
 		setTimeout(() => {
@@ -49,19 +111,17 @@ class AppState {
 			]);
 		}, 2000);
 	};
-
-	incrementStep = () => {
-		this.step += 1;
-	};
 }
 
 decorate(AppState, {
-	step: observable,
+	steps: observable,
+	step: computed,
 	timeline: observable,
 	mapa: observable,
 
-	incrementStep: action,
-	loadMap: action
+	loadMap: action,
+	setSearchParameter: action,
+	rollbackStep: action
 });
 
 const state = new AppState();

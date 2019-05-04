@@ -184,9 +184,9 @@ class Mapa extends Component {
 									{
 										currentMarker.type !== 'S'
 										?
-											<Button 
-												variant="contained" 
-												color="primary" 
+											<Button
+												variant="contained"
+												color="primary"
 												className="host-info-btn-select"
 												onClick={() => window.location.href = '/#/timeline'}>
 												Selecionar
