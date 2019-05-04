@@ -5,6 +5,7 @@ import Checkout from '../modules/checkout';
 import Resultado from '../modules/resultado';
 import Timeline from '../modules/timeline';
 import Stepper from '../organism/stepper';
+import Mapa from '../modules/mapa';
 
 export default () => (
   <Router history={hashHistory}>
@@ -12,6 +13,7 @@ export default () => (
     <Route path='/checkout' component={Checkout} />
     <Route path='/resultado' component={Resultado} />
 		<Route path='/timeline' component={Timeline} />
+		<Route path='/mapa' component={Mapa} />
     <Redirect from='*' to='/home' />
   </Router>
 )
