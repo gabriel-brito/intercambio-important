@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import appState from '../../AppState';
 import { observer } from 'mobx-react';
-import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import Grid from '@material-ui/core/Grid';
 import pink from '@material-ui/core/colors/pink';
 import green from '@material-ui/core/colors/green';

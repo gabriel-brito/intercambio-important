@@ -1,4 +1,5 @@
 import React from 'react';
+import appState from '../../AppState';
 import { observer } from 'mobx-react';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -11,7 +12,6 @@ import Typography from '@material-ui/core/Typography';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 
-import appState from '../../AppState';
 import cursoIdioma from '../../assets/images/curso-de-idioma.jpg';
 import programaFerias from '../../assets/images/programa-de-ferias.jpg';
 import highSchool from '../../assets/images/high-school.jpg';
