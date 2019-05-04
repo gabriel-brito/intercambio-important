@@ -1,7 +1,7 @@
 import { decorate, observable } from 'mobx';
 
 class StartDate {
-  startDate: '';
+  startDate = '';
 }
 
 decorate(StartDate, {

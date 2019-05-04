@@ -9,6 +9,8 @@ const App = () => (
 			Menu
 			<ul>
 				<li><a href="/">Home</a></li>
+				<li><a href="/#/resultado">Resultado</a></li>
+				<li><a href="/#/mapa">Mapa</a></li>
 				<li><a href="/#/timeline">Timeline</a></li>
 			</ul>
 		</nav>

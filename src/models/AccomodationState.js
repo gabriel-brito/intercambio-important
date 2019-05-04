@@ -1,13 +1,13 @@
 import { decorate, observable } from 'mobx';
 
 class AccomodationState {
-  address: '';
-  classification: '';
-  host: '';
-  hostImage: '';
-  houseNumber: '';
-  type: '';
-  zipCode: '';
+  address = '';
+  classification = '';
+  host = '';
+  hostImage = '';
+  houseNumber = '';
+  type = '';
+  zipCode = '';
 };
 
 decorate(AccomodationState, {

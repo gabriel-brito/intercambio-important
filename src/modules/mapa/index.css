@@ -1,0 +1,26 @@
+.host {
+
+}
+
+.host .host-content {
+	display: flex;
+}
+
+.host .host-content .host-map {
+	flex: 2;
+}
+
+.host .host-content .host-info {
+	border: solid 1px #ddd;
+	border-radius: 5px;
+	flex: 1;
+	margin-left: 10px;
+	padding: 10px;
+	position: relative;
+}
+
+.host .host-content .host-info .host-info-btn-select {
+	bottom: 5px;
+	position: absolute;
+	right: 5px;
+}
