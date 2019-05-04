@@ -10,6 +10,7 @@ class Stepper extends Component {
       <main>
         {appState.step === 1 ? <StepOne /> : ''}
         {appState.step === 2 ? <StepTwo /> : ''}
+        {appState.step === 3 ? alert('step 3') : ''}
       </main>
     );
   }
