@@ -15,7 +15,7 @@ class Timeline extends Component {
 		appState.timeline.getList();
 	}
 
-	render () {
+	render() {
 		return (
 			<div>
 				<div className="timeline-price">R$ {appState.timeline.price}</div>
@@ -23,31 +23,31 @@ class Timeline extends Component {
 				<ul className="timeline">
 					{
 						appState.timeline.list
-						? appState.timeline.list.map(tm => (
-							<li key={tm.id} className="timeline-item">
-								<span className="timeline-date">
-									<span className="timeline-date-label">{tm.date}</span>
-									<span className="timeline-date-bullet"></span>
-								</span>
-								<Card className="timeline-card">
-									<CardHeader
-										title={tm.title}
-									/>
-									<div class="timeline-body">
-										<CardMedia
-											className="timeline-image"
-											image={tm.imageUrl}
+							? appState.timeline.list.map(tm => (
+								<li key={tm.id} className="timeline-item">
+									<span className="timeline-date">
+										<span className="timeline-date-label">{tm.date}</span>
+										<span className="timeline-date-bullet"></span>
+									</span>
+									<Card className="timeline-card">
+										<CardHeader
+											title={tm.title}
 										/>
-										<CardContent className="timeline-content">
-											<Typography>
-												{tm.description}
-											</Typography>
-										</CardContent>
-									</div>
-								</Card>
-							</li>
-						))
-						: <li>Carregando...</li>
+										<div class="timeline-body">
+											<CardMedia
+												className="timeline-image"
+												image={tm.imageUrl}
+											/>
+											<CardContent className="timeline-content">
+												<Typography>
+													{tm.description}
+												</Typography>
+											</CardContent>
+										</div>
+									</Card>
+								</li>
+							))
+							: <li>Carregando...</li>
 					}
 				</ul>
 				<div className="timeline-buttons">
