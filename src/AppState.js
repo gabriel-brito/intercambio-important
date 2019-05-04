@@ -14,12 +14,12 @@ class AppState {
 
   incrementStep = () => {
     this.step += 1;
-  }
+  };
 }
 
 decorate(AppState, {
   step: observable,
-	timeline: observable,
+  timeline: observable,
   incrementStep: action
 });
 
