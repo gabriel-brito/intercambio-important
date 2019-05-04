@@ -66,7 +66,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
 ));
 
 class MapaFiltro extends Component {
-	
+
 	state = {
 		showFamilyFromNetwork: true,
 		showFamilyOutsideNetwork: true,
@@ -158,7 +158,7 @@ class Mapa extends Component {
 
 									<Grid item xs={3}>
 										<div className="avatar-hoster">
-										imagem
+											<img src={currentMarker.profilePicture} alt="" />
 										</div>
 									</Grid>
 
@@ -180,7 +180,7 @@ class Mapa extends Component {
 									</Grid>
 
 
-									
+
 									{
 										currentMarker.type !== 'S'
 										?
