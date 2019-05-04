@@ -47,7 +47,14 @@ class CustomMarker extends Component {
             >
                 {showInfoWindow && (
                     <InfoWindow>
-                                <h4>{marker.name}</h4>
+											<div className="host-map-tooltip">
+												<h4>{marker.name}</h4>
+												{
+													marker.price
+													? <span className="host-map-tooltip-price">R$ {marker.price}</span>
+													: null
+												}
+											</div>
                     </InfoWindow>
                 )}
             </Marker>
@@ -190,6 +197,13 @@ class Mapa extends Component {
                             </Typography>
                             <Typography variant="subtitle1" gutterBottom>
                                 {currentMarker.street}
+                            </Typography>
+                            <Typography variant="h6" gutterBottom>
+																{
+																	currentMarker.price
+																	? <span className="item-amount">R$ {currentMarker.price}</span>
+																	: null
+																}
                             </Typography>
                             <Divider style={styles.divider} />
                             { currentMarker.type !== 'S' ?

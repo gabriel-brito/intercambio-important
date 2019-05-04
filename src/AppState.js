@@ -97,6 +97,7 @@ class AppState {
 					street: '35 White Lion St, The Angel, London N1 9PF, Reino Unido',
 					name: 'Pedro e Maria',
 					description: 'Casal com 1 cachorro e 2 filhos',
+					price: '2.000,00',
 					profilePicture: mapFamily
 				},
 				{
@@ -106,6 +107,7 @@ class AppState {
 					street: '4 Liverpool Rd The Angel, London N1 0PH Reino Unido',
 					name: 'Hotel da Pizza',
 					description: 'Na verdade é uma pizzaria, mas o google maps insiste que é um hotel :/',
+					price: '3.000,00',
 					profilePicture: mapHotel
 				},
 				{
@@ -115,6 +117,7 @@ class AppState {
 					street: 'Elia Mews The Angel, London Reino Unido',
 					name: 'Dona Benta',
 					description: 'Idosa muito maneira',
+					price: '1.500,00',
 					profilePicture: mapFamily2
 				}
 			]);

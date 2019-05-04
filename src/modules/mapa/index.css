@@ -10,6 +10,16 @@
 	margin-top: 10px;
 }
 
+.host-map-tooltip h4 {
+	margin: 0px;
+	margin-bottom: 5px;
+}
+
+.host-map-tooltip-price {
+	color: #85bb65;
+	font-weight: bold;
+}
+
 .host .host-content .host-info {
 	border: solid 1px #ddd;
 	border-radius: 5px;
