@@ -52,23 +52,21 @@ class Timeline extends Component {
 						</ul>
 					</Grid>
 
-					<Grid item xs={3}>
+					<Grid item xs={3} className="box">
 
-						<div className="box">
 							<Grid item xs={12}>
-								<h2>Instituição</h2>
-								<h3>OHC Toronto - Semi-intensivo</h3>
+								<h2>Curso de Idiomas (Inglês)</h2>
+								<p>OHC Toronto - Semi-intensivo, <strong>Canadá</strong><br />
+								Período: De 10/07/2019 a 28/07/2019</p>
 							</Grid>
 
-							<Grid item xs={12} className="info-item">
+							<Grid item xs={12}>
 								<h2>Anfitrião</h2>
-								<h3>Família Adams</h3>
-								<p>Tipo de acomodação: Casa</p>
+								<p>Família Adams (Casa)</p>
 							</Grid>
 
-						</div>
-
-						<div className="box">
+							<Grid item xs={12}>
+							
 							<h2>Dados do Viajante</h2>
 							<Grid container spacing={24}>
 								<Grid item xs={12}>
@@ -114,7 +112,7 @@ class Timeline extends Component {
 								</Grid>
 
 							</Grid>
-						</div>
+						</Grid>
 					</Grid>
 
 				</Grid>
