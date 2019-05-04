@@ -1,3 +1,5 @@
+@import "../../../node_modules/react-image-gallery/styles/css/image-gallery.css";
+
 .timeline {
 	padding: 0;
     height: 493px;
@@ -56,9 +58,14 @@
 	display: flex;
 }
 
-.timeline .timeline-card .timeline-body .timeline-image {
+.timeline .timeline-card .timeline-body .image-gallery-image img {
 	height: 150px;
 	width: 400px;
+}
+
+.timeline .timeline-card .timeline-body .image-gallery-left-nav,
+.timeline .timeline-card .timeline-body .image-gallery-right-nav {
+	font-size: 3em;
 }
 
 .timeline .timeline-card .timeline-body .timeline-content {

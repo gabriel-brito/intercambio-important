@@ -7,8 +7,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import appState from '../../AppState';
 import TextField from '@material-ui/core/TextField';
+import ImageGallery from 'react-image-gallery';
 
 import './index.css'
+import { isWidthDown } from '@material-ui/core/withWidth';
 
 class Timeline extends Component {
 
@@ -33,11 +35,13 @@ class Timeline extends Component {
 												<span className="timeline-date-bullet"></span>
 											</span>
 											<Card className="timeline-card">
-												
+
 												<div className="timeline-body">
-													<CardMedia
-														className="timeline-image"
-														image={tm.imageUrl}
+													<ImageGallery
+														items={[{ original: tm.imageUrl }]}
+														showThumbnails={false}
+														showFullscreenButton={false}
+														showPlayButton={false}
 													/>
 													<CardContent className="timeline-content">
 														<h3>{tm.title}</h3>
@@ -66,7 +70,7 @@ class Timeline extends Component {
 							</Grid>
 
 							<Grid item xs={12}>
-							
+
 							<h2>Dados do Viajante</h2>
 							<Grid container spacing={24}>
 								<Grid item xs={12}>
@@ -118,8 +122,8 @@ class Timeline extends Component {
 				</Grid>
 
 				<div className="timeline-buttons">
-					<Button 
-						variant="contained" 
+					<Button
+						variant="contained"
 						color="primary"
 						onClick={() => window.location.href = '/#/checkout'}>
 						Continuar
