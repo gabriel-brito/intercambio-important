@@ -3,11 +3,16 @@ import { decorate, observable, action, computed } from 'mobx';
 import School from '@material-ui/icons/School';
 import SwapHoriz from '@material-ui/icons/SwapHoriz';
 import Language from '@material-ui/icons/Language';
+import LocationCity from '@material-ui/icons/LocationCity';
 import Timeline from './models/Timeline';
 import ResultParameters from './models/ResultParameters';
 import AccomodationState from './models/AccomodationState';
 import StartDate from './models/StartDate';
 import Mapa from './models/Mapa';
+import mapFamily from './assets/images/timeline/family.png';
+import mapFamily2 from './assets/images/timeline/family2.png';
+import mapHotel from './assets/images/timeline/hotel.png';
+import mapSchool from './assets/images/timeline/school.png';
 
 class AppState {
 	steps = [
@@ -53,7 +58,7 @@ class AppState {
 					value: null
 				}
 			],
-			avatar: <Language />
+			avatar: <LocationCity />
 		}
 	];
 	timeline = new Timeline();
@@ -82,7 +87,8 @@ class AppState {
 					type: 'S',
 					street: '97 White Lion St, The Angel, London N1 9PF, Reino Unido',
 					name: 'Escola de idioma Bartolomeu',
-					description: 'Escola renomada no bairro'
+					description: 'Escola renomada no bairro',
+					profilePicture: mapSchool
 				},
 				{
 					type: 'H',
@@ -90,23 +96,26 @@ class AppState {
 					isFromSchoolNetwork: true,
 					street: '35 White Lion St, The Angel, London N1 9PF, Reino Unido',
 					name: 'Pedro e Maria',
-					description: 'Casal com 1 cachorro e 2 filhos'
+					description: 'Casal com 1 cachorro e 2 filhos',
+					profilePicture: mapFamily
 				},
 				{
 					type: 'H',
 					subType: 'H',
 					isFromSchoolNetwork: true,
 					street: '4 Liverpool Rd The Angel, London N1 0PH Reino Unido',
-					name: 'Dona Benta',
-					description: 'Idosa muito maneira'
+					name: 'Hotel da Pizza',
+					description: 'Na verdade é uma pizzaria, mas o google maps insiste que é um hotel :/',
+					profilePicture: mapHotel
 				},
 				{
 					type: 'H',
 					subType: 'F',
 					isFromSchoolNetwork: false,
 					street: 'Elia Mews The Angel, London Reino Unido',
-					name: 'Silvio Santos',
-					description: 'Um moço do SBT'
+					name: 'Dona Benta',
+					description: 'Idosa muito maneira',
+					profilePicture: mapFamily2
 				}
 			]);
 		}, 2000);

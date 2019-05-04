@@ -105,9 +105,7 @@ const StepTwo = () => {
               <CardActions>
                 <Button
                   onClick={() => {
-                    appState.incrementStep();
-                    appState
-                      .resultParameters.chosenCourse = 'Curso de idiomas';
+                    appState.setSearchParameter('chosenCourse', 'Curso de idiomas');
                   }}
                   size="large"
                   style={{

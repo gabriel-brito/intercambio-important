@@ -11,9 +11,10 @@ import Typography from '@material-ui/core/Typography';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import indigo from '@material-ui/core/colors/indigo';
+import ImageGallery from 'react-image-gallery';
+import { isWidthDown } from '@material-ui/core/withWidth';
 
 import './index.css'
-import { isWidthDown } from '@material-ui/core/withWidth';
 
 class Timeline extends Component {
 
@@ -42,9 +43,11 @@ class Timeline extends Component {
                                 </span>
                                 <Card className="timeline-card">
                                     <div className="timeline-body">
-                                        <CardMedia
-                                            className="timeline-image"
-                                            image={tm.imageUrl}
+                                        <ImageGallery
+                                            items={[{ original: tm.imageUrl }]}
+                                            showThumbnails={false}
+                                            showFullscreenButton={false}
+                                            showPlayButton={false}
                                         />
                                         <CardContent className="timeline-content">
                                             <h3>{tm.title}</h3>
@@ -60,8 +63,9 @@ class Timeline extends Component {
                 <Grid item xs={3}>
                     <div className="box">
                         <Grid item xs={12}>
-                            <h2>Instituição</h2>
-                            <h3>OHC Toronto - Semi-intensivo</h3>
+                            <h2>Curso de Idiomas (Inglês)</h2>
+                            <p>OHC Toronto - Semi-intensivo, <strong>Canadá</strong><br />
+                            Período: De 10/07/2019 a 28/07/2019</p>
                         </Grid>
                         <Grid item xs={12} className="info-item">
                             <h2>Anfitrião</h2>
@@ -114,21 +118,21 @@ class Timeline extends Component {
 										fullWidth />
 								</Grid>
 
-(??)							</Grid>
-(??)						</div>
-(??)					</Grid>
-
-(??)				</Grid>
-(??)
-(??)				<div className="timeline-buttons">
-(??)					<Button 
-(??)						variant="contained" 
-(??)						color="primary"
-(??)						onClick={() => window.location.href = '/#/checkout'}>
-(??)						Continuar
-(??)					</Button>
-(??)				</div>
-(??)			</div>
+							</Grid>
+						</div>
+                        <div className="timeline-buttons">
+                        <Button
+                            size="large"
+                            style={{
+                                backgroundColor: green[600],
+                                color: grey[50]
+                            }}
+                            onClick={() => window.location.href = '/#/checkout'}>
+                            Continuar
+                            </Button>
+                    </div>
+                </Grid>
+        </Grid>
 		);
 	}
 }

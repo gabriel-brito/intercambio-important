@@ -8,3 +8,7 @@
 .breadcrumb h4 {
 	margin-right: 5px;
 }
+
+.breadcrumb [role=button] {
+	margin-left: 10px;
+}

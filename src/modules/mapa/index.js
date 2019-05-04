@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import appState from '../../AppState';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import green from '@material-ui/core/colors/green';
@@ -73,7 +72,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
 ));
 
 class MapaFiltro extends Component {
-	
+
 	state = {
 		showFamilyFromNetwork: true,
 		showFamilyOutsideNetwork: true,

@@ -40,50 +40,51 @@ class AcademicResult extends Component {
 		window.location.href = '/#/mapa';
 	};
 
-render() {
-		const {
-			aboutSchool,
-			address,
-			course,
-			location,
-			name,
-			price
-		} = this.props;
-return (
-    <Card style={styles.card}>
-    <CardContent>
-        <Grid container spacing={24}>
-            <Grid item xs={9}>
-                <Typography variant="h5" style={{color:indigo[900]}}>
-                    {name} - {course} - {location}
-                </Typography>
-                <Typography variant="p" gutterBottom>
-                    {aboutSchool}
-                </Typography>
-                <Typography variant="p" gutterBottom>
-                    Endereço: <i>{address}</i>
-                </Typography>
+    render() {
+    const {
+        aboutSchool,
+        address,
+        course,
+        location,
+        name,
+        price
+    } = this.props;
+    return (
+        <Card style={styles.card}>
+        <CardContent>
+            <Grid container spacing={24}>
+                <Grid item xs={9}>
+                    <Typography variant="h5" style={{color:indigo[900]}}>
+                        {name} - {course} - {location}
+                    </Typography>
+                    <Typography variant="p" gutterBottom>
+                        {aboutSchool}
+                    </Typography>
+                    <Typography variant="p" gutterBottom>
+                        Endereço: <i>{address}</i>
+                    </Typography>
+                </Grid>
+                <Grid item xs={3} style={styles.cardRight}>
+                    <Typography variant="h4" style={{color:indigo[900]}}>
+                        {`R$ ${price}`}
+                    </Typography>
+                </Grid>
             </Grid>
-            <Grid item xs={3} style={styles.cardRight}>
-                <Typography variant="h4" style={{color:indigo[900]}}>
-                    {`R$ ${price}`}
-                </Typography>
-            </Grid>
-        </Grid>
-        </CardContent>
-        <CardActions style={styles.cardButton}>
-            <Button
-                size="large"
-                style={{
-                    backgroundColor: green[600],
-                    color: grey[50]
-                }}
-                onClick={() => window.location.href = '/#/mapa'} >
-                Selecionar
-            </Button>
-        </CardActions>
-    </Card>
-
+            </CardContent>
+            <CardActions style={styles.cardButton}>
+                <Button
+                    size="large"
+                    style={{
+                        backgroundColor: green[600],
+                        color: grey[50]
+                    }}
+                    onClick={() => this.handleSelecionarClick(name)} >
+                    Selecionar
+                </Button>
+            </CardActions>
+        </Card>
+    )}
+}
 
 AcademicResult.propTypes = {
   aboutSchool: PropTypes.string.isRequired,
