@@ -11,9 +11,9 @@ class Stepper extends Component {
         {appState.step === 1 ? <StepOne /> : ''}
         {appState.step === 2 ? <StepTwo /> : ''}
       </main>
-    )
+    );
   }
-};
+}
 
 observer(Stepper);
 
