@@ -1,19 +1,10 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import Clear from '@material-ui/icons/Clear';
 import appState from '../../AppState';
-
-const styles = {
-	root: {
-		display: 'flex',
-		justifyContent: 'center',
-		flexWrap: 'wrap',
-		flexGrow: 1,
-	},
-};
+import './index.css';
 
 class Chips extends Component {
 	handleDelete = stepId => {
@@ -26,7 +17,7 @@ class Chips extends Component {
 		return (
 			(chips && chips.length)
 			?
-			<div style={styles.root}>
+			<div className="breadcrumb">
 					<h4>Seu objetivo é:</h4>
 					{chips.map(step =>
 						<Chip
@@ -49,4 +40,4 @@ class Chips extends Component {
 
 observer(Chips);
 
-export default withStyles(styles)(Chips)
+export default Chips;
