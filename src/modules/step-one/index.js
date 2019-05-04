@@ -45,7 +45,7 @@ const StepOne = () => (
     <Grid container spacing={24}>
       <Grid item xs={12}>
         <Typography className="titles" variant="h3">
-          O seu objetivo com o intercambio é:
+          Escolha seu intercâmbio
         </Typography>
       </Grid>
       <Grid item style={styles.btn} xs={6}>
